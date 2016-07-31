@@ -197,14 +197,16 @@ function readln() {
 }
 
 /**
- * Используется для вывода перекодированного текста (только для Windows). Чтобы работало, перекодируйте сам файл из UTF-8 в Windows-1251 (ANSI), раскомментируйте строку echo iconv("CP1251", "CP866", $text); и закомментируйте echo $text;
+ * Используется для вывода перекодированного текста (только для Windows). Чтобы работало, перекодируйте сам файл из UTF-8 в Windows-1251 (ANSI) и установите значение переменной $decode_to_cp866 с false на true
  *
  */
 function print_ct($text) {
-    /*
-    echo iconv("CP1251", "CP866", $text); // Если используете Windows, раскомментируйте это...
-    */
-    echo $text; // ...и закомментируйте это
+    $decode_to_cp866 = false;
+    if($decode_to_cp866 === true) {
+        echo iconv("CP1251", "CP866", $text);
+    } else {
+        echo $text;
+    }
 }
 
 new Main($argv);
