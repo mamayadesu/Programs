@@ -126,7 +126,7 @@ class Main {
             print_ct("Сохранение настроек...\n");
             $this->saveConfig();
         }
-        $this->log("NoUnmembersPosts v".Main::VERSION." запущен!");
+        $this->log("NoUnmembersPosts v".Main::VERSION." by MamayAdesu запущен!");
         while(true) {
             try {
                 $response = @file_get_contents('https://api.vk.com/method/wall.get?owner_id=-'.$this->config['page_id'].'&count='.$this->config['count'].'&access_token='.$this->config['access_token']);
